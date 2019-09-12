@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="divider">#CCCCCC</color>
+    <color name="main_backgroud_color">#eeeeee</color>
+    <color name="list_notify_text">#ffffffff</color>
+    <color name="notify_view_divider">#66ffffff</color>
+    <color name="color_black">@android:color/black</color>
+
+    <color name="text_color_white">#fff</color>
+    <color name="backgroud_color">#2a84b9</color>
+    <color name="backgroud_color_press">#F3EEE0</color>
+    <color name="logo_background_color">#F3EEE0</color>
+    <color name="tv_button_default_verify">#f8921a</color>
+    <color name="login_textview_default_color">#2A84B9</color>
+    <color name="login_textview_press_color">#2A84B9</color>
+    <color name="tv_button_default_color">@android:color/white</color>
+    <color name="tv_default_color_blue">#4348f2</color>
+    <color name="tv_press_color_blue">#b9b9df</color>
+    <color name="tv_button_verify">#f9ce9b</color>
+
+    <color name="list_item_select_color">#e5e1e1</color>
+
+    <color name="item_sticky_header_backgroundcolor">#E2E2E2</color>
+
+    <color name="red">#ff0100</color>
+
+    <color name="red_background">#c91624</color>
+    <color name="solid_gray">#ccc</color>
+    <color name="color_999">#999999</color>
+    <color name="color_9fa2a4">#9fa2a4</color>
+    <color name="color_ff6c6c">#ff6c6c</color>
+    <color name="color_666">#666</color>
+    
+    <color name="color_login_Company">#B2B2B2</color>
+    <color name="split">#eeeeee</color>
+    <color name="color_00">#8A000000</color>
+
+    <color name="color_text_green">#78B46C</color>
+
+    <color name="color_text_main_pop_ad4128">#AD4128</color>
+    <color name="color_text_main_pop_565656">#565656</color>
+    <color name="color_line_main_c1c1bc">#C1C1BC</color>
+    <color name="color_main_ad4128">#AD4128</color>
+    <color name="color_main_555555">#555555</color>
+    <color name="dark">#5e5656</color>
+    <color name="color_main_4896ec">#4896EC</color>
+    <color name="color_main_c1c1bc">#c1c1bc</color>
+    <color name="color_main_f09b3a">#f09b3a</color>
+
+    <color name="color_main_65b7ed">#65b7ed</color>
+
+    <color name="color_d9d9d9">#d9d9d9</color>
+    <color name="color_4aa6e9">#4aa6e9</color>
+    <color name="color_6aac5c">#6aac5c</color>
+</resources>

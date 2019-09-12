@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen49"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_title"
+            android:paddingBottom="@dimen/dimen5"
+            android:paddingTop="@dimen/dimen5"
+            android:paddingLeft="@dimen/dimen8"
+            android:paddingRight="@dimen/dimen8"
+            android:background="@color/text_color_white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/iv_drawer_menu"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/iv_main_bar_left"
+                android:layout_width="@dimen/dimen23"
+                android:layout_height="@dimen/dimen23"/>
+
+            <LinearLayout
+                android:id="@+id/urm_top_ll"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_station"
+                    android:text="暂无站点"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/dimen16"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/iv_check_stations"
+                    android:layout_marginLeft="@dimen/dimen5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/bg_title_down"
+                    android:layout_width="@dimen/dimen11"
+                    android:layout_height="@dimen/dimen11"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_record"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@mipmap/iv_main_bar_right"
+                    android:layout_width="@dimen/dimen23"
+                    android:layout_height="@dimen/dimen23"/>
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_marginLeft="@dimen/dimen23"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@mipmap/iv_main_bar_search"
+                    android:layout_width="@dimen/dimen23"
+                    android:layout_height="@dimen/dimen23"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main"/>
+
+</android.support.design.widget.CoordinatorLayout>

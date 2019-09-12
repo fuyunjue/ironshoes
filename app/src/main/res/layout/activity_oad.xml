@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="OAD升级" />
+
+    <TextView
+        android:id="@+id/device_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="xxx" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前ImageMode：" />
+
+        <TextView
+            android:id="@+id/image_mode_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxx" />
+
+        <Button
+            android:id="@+id/image_mode_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:text="切换" />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/image_mode_switch_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="xxx" />
+
+    <Button
+        android:id="@+id/file_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="选择文件" />
+
+    <TextView
+        android:id="@+id/file_select_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="xxx" />
+
+    <EditText
+        android:id="@+id/key_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="防篡改密钥" />
+
+    <Button
+        android:id="@+id/upgrade_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="升级" />
+
+    <TextView
+        android:id="@+id/upgrade_infos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="xxx" />
+
+</LinearLayout>

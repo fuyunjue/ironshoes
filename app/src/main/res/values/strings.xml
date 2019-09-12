@@ -1,0 +1,172 @@
+<resources>
+    <string name="app_name">微标铁鞋</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="versioncheck_4">新版本下載中...</string>
+    <string name="versioncheck_1">發現新版本，是否立即下載?</string>
+    <string name="versioncheck_2">最新版本：</string>
+    <string name="versioncheck_3">\n更新內容：</string>
+
+    <string name="has_download">已下載過該更新包，可直接安裝</string>
+
+    <string name="login_text">登   入</string>
+    <string name="working">正在执行作业...</string>
+    <string name="loading">正在加載...</string>
+    <string name="login_loading">正在登入...</string>
+    <string name="key_back_logout">再按一次退出應用</string>
+    <string name="phone_not_null">请输入手机号码</string>
+    <string name="password_not_null">请输入密码</string>
+    <string name="login_fail">登录失败</string>
+    <string name="remember_password">记住密码</string>
+
+
+    <string name="string_install_unknow_apk_note">安裝應用需要打開未知來源權限，請去設置中開啟權限</string>
+
+
+    <string name="string_speed" />
+    <string name="string_direction_person" />
+    <string name="string_init_location_x" />
+    <string name="string_init_location_y" />
+    <string name="string_origin_location_x" />
+    <string name="string_origin_location_y" />
+    <string name="string_view_type" />
+    <string name="string_person_id" />
+
+    <string name="date_start_year" />
+    <string name="date_start_month" />
+    <string name="date_start_day" />
+    <string name="date_end_year" />
+    <string name="date_end_month" />
+    <string name="date_end_day" />
+
+
+    <string name="header_text">The Header</string>
+    <string name="footer_text">The Footer</string>
+    <string name="main_logout">退出登录</string>
+
+    <string name="datepicker_cancel">取消</string>
+    <string name="datepicker_sure">确定</string>
+    
+    <string name="tv_xh">%s</string>
+    <string name="tv_user_chinesename">姓名：%s</string>
+    <string name="tv_user_mobile">电话：%s</string>
+    <string name="tx_number">车号：%s</string>
+    <string name="tv_location">股道：%s</string>
+    <string name="tv_lefttxname">左铁鞋：%s</string>
+    <string name="tv_righttxname">右铁鞋：%s</string>
+    <string name="tv_executedate">%s %s</string>
+    <string name="tv_executor_examiner">作业：%s | 检查：%s</string>
+    <string name="tv_dismantledate_dismantletime">%s %s</string>
+    <string name="tv_dismantleuser">作业：%s</string>
+    <string name="tv_patroldate_patroltime">%s %s</string>
+    <string name="tv_patrolman">巡检：%s</string>
+    <string name="tv_txnumber">机车车号：%s</string>
+    <string name="tv_rummager">复检：%s</string>
+
+    <string name="tv_device">发现设备SN：%s</string>
+    <string name="tv_device_connect">发现设备SN：%1$s，连接中...</string>
+    <string name="tv_ble_connect">已连接设备：%s，请执行作业</string>
+    <string name="tv_device_sn">铁鞋SN：%s</string>
+    <string name="tv_device_bm">铁鞋编码：%s</string>
+    <string name="tv_device_gdh">股道号：%s</string>
+    <string name="tv_device_txwz">铁鞋位置：%s</string>
+    <string name="tv_device_jcch">机车车号：%s</string>
+
+
+
+    <string name="tv_notice_title">预警通知</string>
+    <string name="tv_notice_txno">铁鞋编码：%s</string>
+    <string name="tv_notice_content">故障内容：%s</string>
+
+
+    <string name="tv_time_arrive">入库时间：%s</string>
+    <string name="tv_tx_install">铁鞋设防：%s</string>
+    <string name="tv_patrol_time">巡检时间：%s</string>
+    <string name="tv_rummager_info">铁鞋检查：%s</string>
+    <string name="tv_region">配属局段：%s</string>
+    <string name="tv_trainnumber">车号：%s</string>
+    <string name="tv_trainorder">车次：%s</string>
+    <string name="tv_motorman">司机：%s</string>
+    <string name="tv_moveperson_movegroup">作业：%s | 班组：%s</string>
+    <string name="tv_trainnumber_search">班车车号：%s</string>
+    <string name="tv_orientation">安装方位：%s</string>
+    <string name="tv_removeperson">作业：%s</string>
+
+
+
+    <string-array name="main_work_gdh">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+
+    <string-array name="main_work_gdwz">
+        <item>左</item>
+        <item>右</item>
+    </string-array>
+
+    <string name="tag_tv"></string>
+    <string name="tag_tv_track"></string>
+
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="UUID">UUID</string>
+    <string name="UUID1">UUID1</string>
+    <string name="UUID2">UUID2</string>
+    <string name="UUID3">UUID3</string>
+    <string name="UUIDHint">00000000&#8211;0000&#8211;0000&#8211;0000&#8211;000000000000</string>
+    <string name="Major">Major</string>
+    <string name="Major1">Major1</string>
+    <string name="Major2">Major2</string>
+    <string name="Major3">Major3</string>
+    <string name="Minor">Minor</string>
+    <string name="Minor1">Minor1</string>
+    <string name="Minor2">Minor2</string>
+    <string name="Minor3">Minor3</string>
+    <string name="MeasurePower">MeasurePower</string>
+    <string name="MeasurePower1">MeasurePower1</string>
+    <string name="MeasurePower2">MeasurePower2</string>
+    <string name="MeasurePower3">MeasurePower3</string>
+    <string name="TxPower">TxPower</string>
+    <string name="TxPower1">TxPower1</string>
+    <string name="TxPower2">TxPower2</string>
+    <string name="TxPower3">TxPower3</string>
+    <string name="EncryptDefence">防蹭用模式</string>
+    <string name="EncryptDefence1">防蹭用模式1</string>
+    <string name="EncryptDefence2">防蹭用模式2</string>
+    <string name="EncryptDefence3">防蹭用模式3</string>
+    <string name="BroadcastInterval">发送间隔(ms)</string>
+    <string name="DeviceName">设备名称</string>
+    <string name="ConfigKey">防篡改密钥</string>
+    <string name="ConfigDefence">防篡改模式</string>
+    <string name="ConfigTime">配置时间</string>
+    <string name="Reset">恢复出厂设置</string>
+    <string name="Config">配置</string>
+    <string name="LedStatus">Led状态</string>
+    <string name="NoChange">不变</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+</resources>

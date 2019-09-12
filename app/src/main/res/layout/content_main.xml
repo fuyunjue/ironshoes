@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+
+    <WebView
+        android:scrollbars="none"
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.cn.jyz.ironshoes.view.SvgLayout
+            android:id="@+id/powerFullLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_work"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen38"
+        android:paddingTop="@dimen/dimen8"
+        android:paddingBottom="@dimen/dimen8"
+        android:paddingLeft="@dimen/dimen18"
+        android:paddingRight="@dimen/dimen18"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:background="@drawable/button_share_blue"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:src="@mipmap/icon_main_work"
+            android:layout_width="@dimen/dimen23"
+            android:layout_height="@dimen/dimen23"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/dimen3"
+            android:text="铁鞋作业"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen20"
+            android:textColor="@color/text_color_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>

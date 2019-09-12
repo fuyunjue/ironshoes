@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@color/main_backgroud_color"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_pop_top"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/dimen8"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen11"
+            android:text="铁鞋作业"
+            android:textSize="@dimen/dimen18"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/ll_work_close"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="@dimen/dimen8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen23"
+                android:text="×"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_tmp"
+        android:layout_below="@id/ll_pop_top"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/text_share_65b7ed"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/dimen12"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_device"
+            android:textSize="@dimen/dimen16"
+            android:textColor="@color/color_main_65b7ed"
+            android:text="铁鞋设备  扫描中..."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@id/ll_tmp"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/dimen30"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_ironshoes_install"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@mipmap/bg_main_work_pop_left"
+                android:layout_width="@dimen/dimen68"
+                android:layout_height="@dimen/dimen68"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen8"
+                android:text="铁鞋设防"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/dimen14"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ironshoes_check"
+            android:layout_marginLeft="@dimen/dimen38"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@mipmap/bg_main_work_pop_middle"
+                android:layout_width="@dimen/dimen68"
+                android:layout_height="@dimen/dimen68"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen8"
+                android:text="铁鞋巡检"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/dimen14"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ironshoes_delete"
+            android:layout_marginLeft="@dimen/dimen38"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@mipmap/bg_main_work_pop_right"
+                android:layout_width="@dimen/dimen68"
+                android:layout_height="@dimen/dimen68"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen8"
+                android:text="铁鞋撤防"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/dimen14"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+
+

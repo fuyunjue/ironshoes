@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/text_color_white"
+                android:id="@+id/rl_main_drawer"
+                android:layout_height="match_parent">
+
+
+    <include
+        android:id="@+id/header_home"
+        layout="@layout/nav_header_main"/>
+
+
+    <LinearLayout
+        android:layout_below="@id/header_home"
+        android:paddingRight="@dimen/dimen14"
+        android:paddingLeft="@dimen/dimen14"
+        android:paddingTop="@dimen/dimen14"
+        android:paddingBottom="@dimen/dimen14"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/icon_notice"
+                android:layout_width="@dimen/dimen30"
+                android:layout_height="@dimen/dimen30"/>
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen11"
+                android:text="预警通知"
+                android:textSize="@dimen/dimen16"
+                android:textColor="@color/color_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen14"
+            android:layout_marginBottom="@dimen/dimen14"
+            android:background="@color/color_line_main_c1c1bc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen1" />
+
+
+        <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:descendantFocusability="blocksDescendants"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </LinearLayout>
+</RelativeLayout>

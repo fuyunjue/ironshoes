@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:paddingLeft="@dimen/dimen20"
+                android:paddingRight="@dimen/dimen20"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@color/cardview_light_background"
+        card_view:cardCornerRadius="@dimen/dimen8"
+        card_view:cardElevation="@dimen/dimen8"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:paddingRight="@dimen/dimen11"
+            android:paddingLeft="@dimen/dimen11"
+            android:paddingBottom="@dimen/dimen3"
+            android:paddingTop="@dimen/dimen3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_info_close"
+                android:paddingBottom="@dimen/dimen5"
+                android:paddingTop="@dimen/dimen5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:background="@drawable/button_share_eee"
+                    android:layout_width="@dimen/dimen68"
+                    android:layout_height="@dimen/dimen6"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/dimen3"
+                android:layout_marginTop="@dimen/dimen3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:background="@drawable/text_share_eee"
+                    android:paddingTop="@dimen/dimen1"
+                    android:paddingBottom="@dimen/dimen1"
+                    android:paddingLeft="@dimen/dimen3"
+                    android:paddingRight="@dimen/dimen3"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="@dimen/dimen8"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_time_arrive"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:text="@string/tv_time_arrive"
+                        android:textSize="@dimen/dimen9"
+                        android:textColor="@color/color_text_green"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/text_share_eee"
+                    android:paddingTop="@dimen/dimen1"
+                    android:paddingBottom="@dimen/dimen1"
+                    android:paddingLeft="@dimen/dimen3"
+                    android:paddingRight="@dimen/dimen3"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen8"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_tx_install"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:text="@string/tv_tx_install"
+                        android:textSize="@dimen/dimen9"
+                        android:textColor="@color/color_text_green"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen68">
+
+                <ImageView
+                    android:src="@mipmap/main_pop_info_train"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen14"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tmp"
+                        android:layout_marginLeft="@dimen/dimen5"
+                        android:layout_marginRight="@dimen/dimen10"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="@string/tv_region"
+                            android:id="@+id/tv_region"
+                            android:textSize="@dimen/dimen10"
+                            android:textColor="@color/text_color_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="@string/tv_trainnumber"
+                            android:id="@+id/tv_trainnumber"
+                            android:textSize="@dimen/dimen10"
+                            android:textColor="@color/text_color_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_toRightOf="@id/ll_tmp"
+                        android:layout_marginRight="@dimen/dimen15"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="@string/tv_trainorder"
+                            android:id="@+id/tv_trainorder"
+                            android:textSize="@dimen/dimen10"
+                            android:textColor="@color/text_color_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="@string/tv_motorman"
+                            android:id="@+id/tv_motorman"
+                            android:textSize="@dimen/dimen10"
+                            android:textColor="@color/text_color_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dimen5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:background="@drawable/text_share_black"
+                    android:padding="@dimen/dimen3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_patrol_time"
+                        android:text="@string/tv_patrol_time"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/text_share_black"
+                    android:padding="@dimen/dimen3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_rummager"
+                        android:text="@string/tv_rummager_info"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen11"
+                android:paddingBottom="@dimen/dimen11"
+                android:background="@drawable/text_share_eee"
+                android:layout_marginTop="@dimen/dimen8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/dimen8"
+                    android:layout_marginRight="@dimen/dimen8"
+                    android:src="@mipmap/main_pop_info_ironshoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen38"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    
+                    <TextView
+                        android:id="@+id/tv_tmp"
+                        android:text="铁鞋编号"
+                        style="@style/main_pop_info_text_title"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_tiexiecode"
+                        style="@style/main_pop_info_text_left"
+                        android:text="@string/tv_xh"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_tiexiecode"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="安装时间"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_installationtime"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_installationtime"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="安装人员"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_installationperson"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_installationperson"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="巡检时间"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_patroltimequantum"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_patroltimequantum"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="巡检人员"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_patrolperson"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_patrolperson"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="检查状态"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_patrolresult"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_patrolresult"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="铁鞋电量"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_tiexiebattery"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_tiexiebattery"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="Lora通信"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_lorastate"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_lorastate"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+
+

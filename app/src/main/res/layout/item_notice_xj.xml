@@ -1,0 +1,187 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/icon_main_notice_xj"
+                android:layout_width="@dimen/dimen25"
+                android:layout_height="@dimen/dimen25"/>
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/color_main_f09b3a"
+                android:textSize="@dimen/dimen16"
+                android:text="铁鞋故障"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_close"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/oval_while"
+                android:layout_width="@dimen/dimen25"
+                android:layout_height="@dimen/dimen25"/>
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen16"
+                android:text="X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen1"
+        android:layout_width="match_parent"
+        android:background="@color/color_main_c1c1bc"
+        android:layout_height="@dimen/dimen1">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen3"
+        android:layout_marginBottom="@dimen/dimen3"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_txno"
+            style="@style/item_text_main_notice"
+            android:text="铁鞋编码：TYTK5-1"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            style="@style/item_text_main_notice"
+            android:text="故障类型：【低电量，电量低于30%】"/>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+<!--<LinearLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+
+            <!--<LinearLayout-->
+                <!--android:gravity="top"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<ImageView-->
+                        <!--android:src="@mipmap/icon_main_notice_xj"-->
+                        <!--android:layout_width="@dimen/dimen25"-->
+                        <!--android:layout_height="@dimen/dimen25"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="@dimen/dimen8"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textColor="@color/color_main_f09b3a"-->
+                        <!--android:textSize="@dimen/dimen16"-->
+                        <!--android:text="铁鞋巡检"/>-->
+
+                <!--</LinearLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/rl_close"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_centerInParent="true"-->
+                        <!--android:src="@drawable/oval_while"-->
+                        <!--android:layout_width="@dimen/dimen25"-->
+                        <!--android:layout_height="@dimen/dimen25"/>-->
+
+                    <!--<TextView-->
+                        <!--android:layout_centerInParent="true"-->
+                        <!--android:textColor="@color/color_black"-->
+                        <!--android:textSize="@dimen/dimen16"-->
+                        <!--android:text="X"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"/>-->
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="@dimen/dimen1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/color_main_c1c1bc"-->
+        <!--android:layout_height="@dimen/dimen1">-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="@dimen/dimen3"-->
+        <!--android:layout_marginBottom="@dimen/dimen3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+            <!--style="@style/item_text_main_notice"-->
+            <!--android:text="作业班组：01/02 夜班"/>-->
+
+        <!--<TextView-->
+            <!--style="@style/item_text_main_notice"-->
+            <!--android:text="巡检股道：3、4、5、6"/>-->
+
+        <!--<TextView-->
+            <!--style="@style/item_text_main_notice"-->
+            <!--android:text="时间：01/07 03:21 - 01/07 06:20"/>-->
+
+        <!--<TextView-->
+            <!--style="@style/item_text_main_notice"-->
+            <!--android:text="巡检次数：3"/>-->
+
+        <!--<TextView-->
+            <!--style="@style/item_text_main_notice"-->
+            <!--android:text="铁鞋数量：8"/>-->
+
+
+    <!--</LinearLayout>-->
+<!--</LinearLayout>-->

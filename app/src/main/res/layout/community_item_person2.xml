@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_ll_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40px">
+
+        <ImageView
+            android:id="@+id/id_iv_hirer_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/img_person_task" />
+
+        <TextView
+            android:id="@+id/id_tv_task_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="10dp" />
+
+    </FrameLayout>
+
+    <cms.wxj.community.view.CommunityPersonView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_person_npc_left_nv_1" />
+
+</LinearLayout><!--
+<com.qfdqc.views.demo.view.CommunityPersonView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_person"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/img_person_left_nv_1" />-->

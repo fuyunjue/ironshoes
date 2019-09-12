@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+                android:background="@color/main_backgroud_color"
+              android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:background="@color/text_color_white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:layout_marginLeft="@dimen/dimen8"
+            android:layout_marginRight="@dimen/dimen8"
+            android:id="@+id/iv_back"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/iv_back"
+            android:layout_width="@dimen/dimen25"
+            android:layout_height="@dimen/dimen25"/>
+
+
+        <!--LinearLayout代替原标题栏的位置-->
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="?attr/actionBarSize">
+            <!--?attr/actionBarSize表示匹配原actionBar高度-->
+
+            <!--显示两个标题-->
+            <TextView
+                android:id="@+id/title_inspection"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="作业记录"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen16" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/dimen43"
+                android:id="@+id/title_task"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="巡检记录"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dimen16" />
+            <!--这里设置的两个文本的初始状态是文字1是深色#000000，文字2是浅色#8e8e8e。
+            之后会在函数中实现点击变色的功能-->
+
+        </LinearLayout>
+
+
+        <!--indicator是紧贴着文字下面的指示条-->
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen3"
+            android:scaleType="matrix"
+            android:src="@mipmap/bg_record_indicator" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_below="@id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen8"
+        android:background="@drawable/shadow" />
+
+    <!--制作主体部分viewpager-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title">
+
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

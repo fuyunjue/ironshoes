@@ -1,0 +1,198 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen6"
+    android:background="@drawable/item_inspection_share"
+    android:orientation="vertical">
+
+
+            <LinearLayout
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_txcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/dimen18"
+                        android:text="@string/tv_device_bm"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    style="@style/item_text_right"
+                    android:layout_marginTop="@dimen/dimen1"
+                    android:text="@string/tv_device_gdh"/>
+
+            </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:background="@color/main_backgroud_color"
+        android:layout_height="@dimen/dimen1">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/item_text_bluebg"
+            android:text="设防"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_moveperiodtime"
+                style="@style/item_text_parent"
+                android:text="@string/tv_xh"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_moveperson_movegroup"
+            style="@style/item_text_right"
+            android:text="@string/tv_moveperson_movegroup"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:visibility="invisible"
+            style="@style/item_text_bluebg"
+            android:text="设防"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_trainnumber_search"
+                style="@style/item_text_parent"
+                android:text="@string/tv_trainnumber_search"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_orientation"
+            style="@style/item_text_right"
+            android:text="@string/tv_orientation"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/item_text_greenbg"
+            android:text="撤防"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_removeperiodtime"
+                style="@style/item_text_parent"
+                android:text="@string/tv_xh"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_removeperson"
+            style="@style/item_text_right"
+            android:text="@string/tv_removeperson"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/item_text_xj"
+            android:text="巡检"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_patroltime"
+                style="@style/item_text_parent"
+                android:text="@string/tv_xh"/>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/dimen16"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@mipmap/sure"
+                    android:layout_width="@dimen/dimen16"
+                    android:layout_height="@dimen/dimen16"/>
+
+                <TextView
+                    style="@style/item_text_parent"
+                    android:layout_marginLeft="@dimen/dimen3"
+                    android:text="正常"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_patrolman"
+            style="@style/item_text_right"
+            android:text="@string/tv_patrolman"/>
+    </LinearLayout>
+</LinearLayout>

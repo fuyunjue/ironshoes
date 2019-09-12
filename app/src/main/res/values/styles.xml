@@ -1,0 +1,180 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AnimTopMiddle" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/top_middle_in</item>
+        <item name="android:windowExitAnimation">@anim/top_middle_out</item>
+    </style>
+
+
+
+    <style name="AnimTopLeft" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/top_left_in</item>
+        <item name="android:windowExitAnimation">@anim/top_left_out</item>
+    </style>
+
+
+    <style name="AnimUp" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/buttom_middle_in</item>
+        <item name="android:windowExitAnimation">@anim/buttom_middle_out</item>
+    </style>
+
+    <style name="urm_tv">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="main_pop_info_text_title">
+        <item name="android:textColor">@color/color_text_main_pop_ad4128</item>
+        <item name="android:textSize">@dimen/dimen10</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    
+    <style name="main_pop_info_text_right">
+        <item name="android:textColor">@color/color_text_main_pop_565656</item>
+        <item name="android:textSize">@dimen/dimen10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toRightOf">@id/tv_tmp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
+    <style name="main_pop_info_text_left">
+        <item name="android:textColor">@color/color_text_main_pop_565656</item>
+        <item name="android:textSize">@dimen/dimen10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toLeftOf">@id/tv_tmp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="item_text_xh">
+        <item name="android:textSize">@dimen/dimen13</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:paddingRight">@dimen/dimen6</item>
+        <item name="android:paddingLeft">@dimen/dimen6</item>
+        <item name="android:background">@drawable/item_inspection_share_xh</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">top</item>
+    </style>
+
+    <style name="item_text_bluebg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/dimen6</item>
+        <item name="android:paddingRight">@dimen/dimen6</item>
+        <item name="android:textSize">@dimen/dimen14</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:background">@drawable/item_inspection_share_tx</item>
+    </style>
+
+    <style name="item_text_greenbg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/dimen6</item>
+        <item name="android:paddingRight">@dimen/dimen6</item>
+        <item name="android:textSize">@dimen/dimen14</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:background">@drawable/item_inspection_share_cf</item>
+    </style>
+
+    <style name="item_text_xj">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/dimen6</item>
+        <item name="android:paddingRight">@dimen/dimen6</item>
+        <item name="android:textSize">@dimen/dimen14</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:background">@drawable/item_inspection_share_fj</item>
+    </style>
+
+    <style name="item_text_right" parent="item_text_parent">
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="item_text_parent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dimen12</item>
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="item_text_main_notice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">@dimen/dimen13</item>
+        <item name="android:layout_marginTop">@dimen/dimen5</item>
+    </style>
+
+
+
+
+    <style name="nameStyle">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="nameStyle.inactive">
+        <item name="android:textColor">#ccc</item>
+    </style>
+
+    <style name="nameStyleSelected">
+        <item name="android:textColor">#c33</item>
+    </style>
+
+    <style name="listItemStyle">
+        <item name="android:background">#abc</item>
+        <item name="android:padding">18dp</item>
+    </style>
+
+    <style name="devlistStyle">
+        <item name="android:dividerHeight">5dp</item>
+    </style>
+
+    <style name="dirStyle">
+        <item name="android:textColor">#003</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <declare-styleable name="SuperEditText">
+        <attr name="textLength" format="integer" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="pointColor" format="color" />
+        <attr name="pointWidth" format="dimension" />
+
+        <attr name="editNumber" format="integer" />
+
+    </declare-styleable>
+</resources>

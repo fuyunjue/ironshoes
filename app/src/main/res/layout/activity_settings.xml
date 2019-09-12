@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:background="@color/color_00"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="@dimen/dimen49">
+
+        <TextView
+            android:textSize="@dimen/dimen20"
+            android:textColor="@color/text_color_white"
+            android:text="服务器配置"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen16"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen5"
+            android:text="服务器"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="IP:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.cn.jyz.ironshoes.view.SuperEditText
+                android:id="@+id/set_ip"
+                android:layout_marginLeft="@dimen/dimen3"
+                android:layout_height="@dimen/dimen49"
+                android:layout_width="@dimen/dimen150" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/dimen5"
+                android:text="端口号:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_port"
+                android:inputType="number"
+                android:padding="@dimen/dimen5"
+                android:layout_marginLeft="@dimen/dimen5"
+                android:background="@drawable/share_edittext"
+                android:layout_width="@dimen/dimen55"
+                android:layout_height="@dimen/dimen49" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen38"
+            android:text="推送监听服务器"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="IP:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/set_ip_mqtt"
+                android:layout_marginLeft="@dimen/dimen3"
+                android:layout_height="@dimen/dimen49"
+                android:layout_width="@dimen/dimen150"/>
+            <!--<com.cn.jyz.ironshoes.view.SuperEditText-->
+                <!--android:id="@+id/set_ip_mqtt"-->
+                <!--android:layout_marginLeft="@dimen/dimen3"-->
+                <!--android:layout_height="@dimen/dimen49"-->
+                <!--android:layout_width="@dimen/dimen150" />-->
+
+            <TextView
+                android:layout_marginLeft="@dimen/dimen5"
+                android:text="端口号:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_port_mqtt"
+                android:inputType="number"
+                android:padding="@dimen/dimen5"
+                android:layout_marginLeft="@dimen/dimen5"
+                android:background="@drawable/share_edittext"
+                android:layout_width="@dimen/dimen55"
+                android:layout_height="@dimen/dimen49" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="记录日志" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_save"
+        android:layout_margin="@dimen/dimen49"
+        android:layout_marginTop="@dimen/dimen11"
+        android:layout_width="fill_parent"
+        android:background="@drawable/button_share_blue"
+        android:textColor="@color/text_color_white"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="@dimen/dimen8"
+        android:text="保存"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            position: relative;
+            margin: 0 auto;
+        }
+        iframe{
+            border: none;
+        }
+        #canvas{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+    </style>
+
+<body style="background-color:#000;">
+
+    <div id="app">
+        <iframe id="svg"></iframe>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var spList = [];
+    var imgMap = {};
+    var urlMap = {
+        '1_1': './images/track1_1.png',
+        '1_2': './images/track1_2.png',
+        '1_3': './images/track1_3.png',
+        '2_200': './images/xie1_200.png',
+        '2_2': './images/xie1_2.png',
+    }
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext("2d");
+
+    imgloadQueue(urlMap, function(map){
+        imgMap = map;
+        for(var i=0; i<spList.length; i++){
+            var sp = spList[i]
+            drawSVGIcon(sp.type, sp.state, sp.text, sp.x, sp.y, sp.width, sp.height);
+        }
+    })
+
+    canvas.addEventListener('click', function(evt){
+        checkSpClick(evt.clientX, evt.clientY)
+    })
+
+    function createSvgTag(path, width, height) {
+        var svg = document.getElementById('svg')
+        svg.src = path;
+        canvas.width = svg.width = width;
+        canvas.height = svg.height = height;
+
+        var app = document.getElementById('app')
+        app.style.width = width + 'px'
+        app.style.height = height + 'px'
+    }
+
+
+    function checkSpClick(x, y){
+        x -= canvas.getBoundingClientRect().left
+        y -= canvas.getBoundingClientRect().top
+        for(var i=spList.length-1; i>=0; i--){
+            var sp = spList[i];
+            if(x>=sp.x && y>=sp.y && x<=sp.x+sp.width && y<=sp.y+sp.height){
+                clickHandler(sp.type, sp.fid, sp.index, sp.trackId);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function clickHandler(type, fid, index, trackId){
+        console.log(type, fid)
+        if (ironshoesJsObject) {
+            ironshoesJsObject.iconClick(type, fid, index, trackId);
+        }
+    }
+
+    function drawSVGIcon(type, state, text, x, y, w, h) {
+        var img = imgMap[type+'_'+state]
+        if(img){
+            if(1 == type){
+                //画小车
+                ctx.drawImage(img, 0, 0, 145, 82, x, y, w, h);
+
+                //画车号
+                ctx.font="14px Georgia";
+                ctx.fillStyle="#FFF";
+                ctx.fillText(text, x+(w/3), y+(h/5*2));
+            }else{
+                //画铁鞋
+                ctx.drawImage(img, 0, 0, 150, 150, x, y, w, h);
+            }
+        }
+    }
+
+    function addSVGIcon(type, state, fid, text, marginTop, marginLeft, carWidth, carHeight, index, trackId) {
+        drawSVGIcon(type, state, text, marginLeft, marginTop, carWidth, carHeight)
+
+        spList.push({
+            type: type,
+            state: state,
+            fid: fid,
+            text: text,
+            x: marginLeft,
+            y: marginTop,
+            width: carWidth,
+            height: carHeight,
+            index: index,
+            trackId: trackId
+        })
+    }
+
+    function imgloadQueue(map, callback){
+        var urls = []
+        for(var k in map) urls.push({key:k, value: map[k]})
+        var index = 0, len=urls.length, result=[];
+        var singleImgload = function(){
+            if(index < len) {
+                var url = urls[index].value
+                var img = new Image();
+                img.onload = singleImgload
+                img.src = url
+                result[urls[index].key] = img;
+            }else if(callback){
+                callback(result);
+            }
+            index++;
+        }
+        singleImgload();
+    }
+
+    function clearSVGIcon(){
+        spList = [];
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+</script>
+</html>

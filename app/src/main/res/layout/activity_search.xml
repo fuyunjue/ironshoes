@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:background="@color/text_color_white"
+                android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:background="@color/main_backgroud_color"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+
+
+        <ImageView
+            android:layout_marginLeft="@dimen/dimen8"
+            android:layout_marginRight="@dimen/dimen8"
+            android:id="@+id/iv_back"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/iv_back"
+            android:layout_width="@dimen/dimen25"
+            android:layout_height="@dimen/dimen25"/>
+
+
+        <com.codingending.library.FairySearchView
+            android:id="@+id/search_view"
+            android:background="@null"
+            android:layout_toRightOf="@id/iv_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:showSearchIcon="true"
+            app:searchViewHeight="55dp"
+            app:searchIcon="@mipmap/bg_search"
+            app:searchHint="搜索车号、人员"
+            app:showCancelButton="false"
+            app:showBackButton="false"
+            app:showClearButton="true" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_datepicker"
+        android:padding="@dimen/dimen11"
+        android:background="@color/main_backgroud_color"
+        android:layout_marginTop="@dimen/dimen16"
+        android:layout_below="@id/rl_title"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="@dimen/dimen16"
+            android:textColor="@color/color_black"
+            android:text="时段筛选"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginLeft="@dimen/dimen5"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/bg_title_down"
+            android:layout_width="@dimen/dimen11"
+            android:layout_height="@dimen/dimen11"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:textSize="@dimen/dimen14"
+            android:textColor="@color/tv_default_color_blue"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:layout_below="@id/ll_datepicker"
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+</RelativeLayout>

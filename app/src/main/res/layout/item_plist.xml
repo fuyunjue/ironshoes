@@ -1,0 +1,153 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:background="@color/main_backgroud_color"
+        android:layout_height="@dimen/dimen1">
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:padding="@dimen/dimen3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:paddingRight="@dimen/dimen5"
+            android:paddingLeft="@dimen/dimen5"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_txcode"
+                    android:text="@string/tv_device_bm"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/dimen12"
+                    android:textColor="@color/color_black"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:text="@string/tv_location"
+                    style="@style/item_text_right"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            style="@style/item_text_bluebg"
+            android:text="巡检"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_patrolman"
+                android:text="@string/tv_xh"
+                style="@style/item_text_parent"/>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/dimen16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@mipmap/sure"
+                    android:layout_width="@dimen/dimen16"
+                    android:layout_height="@dimen/dimen16"/>
+
+                <TextView
+                    style="@style/item_text_parent"
+                    android:layout_marginLeft="@dimen/dimen3"
+                    android:text="正常"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_txPatrolTime"
+            android:text="@string/tv_xh"
+            style="@style/item_text_right"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen5"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/item_text_xj"
+            android:text="复检"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dimen16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_rummager"
+                android:text="@string/tv_rummager"
+                style="@style/item_text_parent"/>
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/dimen16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@mipmap/sure"
+                    android:layout_width="@dimen/dimen16"
+                    android:layout_height="@dimen/dimen16"/>
+
+                <TextView
+                    style="@style/item_text_parent"
+                    android:layout_marginLeft="@dimen/dimen3"
+                    android:text="正常"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/item_text_right"
+            android:visibility="invisible"
+            android:text="01/09 08:11"/>
+    </LinearLayout>
+</LinearLayout>
