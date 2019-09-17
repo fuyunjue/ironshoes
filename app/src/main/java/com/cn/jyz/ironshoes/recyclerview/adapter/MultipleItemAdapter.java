@@ -13,6 +13,8 @@ import com.cn.jyz.ironshoes.model.ModelSearchResult;
 import com.cn.jyz.ironshoes.recyclerview.base.SuperViewHolder;
 import com.cn.jyz.ironshoes.recyclerview.bean.RecordItem;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 
@@ -139,7 +141,7 @@ public class MultipleItemAdapter extends BaseMultiAdapter<RecordItem> {
             tv_location.setText(String.format(mContext.getResources().getString(R.string.tv_location), pItem.getLocation()));
     
             TextView tv_patrolman = view.findViewById(R.id.tv_patrolman);
-            tv_patrolman.setText(String.format(mContext.getResources().getString(R.string.tv_location), pItem.getPatrolman()));
+            tv_patrolman.setText(String.format(mContext.getResources().getString(R.string.tv_patrolman), pItem.getPatrolman()));
             
             TextView tv_txPatrolTime = view.findViewById(R.id.tv_txPatrolTime);
             tv_txPatrolTime.setText(String.format(mContext.getResources().getString(R.string.tv_xh), pItem.getTxPatrolTime()));
@@ -147,6 +149,11 @@ public class MultipleItemAdapter extends BaseMultiAdapter<RecordItem> {
             TextView tv_rummager = view.findViewById(R.id.tv_rummager);
             tv_rummager.setText(String.format(mContext.getResources().getString(R.string.tv_rummager), pItem.getRummager()));
     
+            TextView tv_patrol_esult = view.findViewById(R.id.tv_patrol_esult);
+            tv_patrol_esult.setText(pItem.getPatrolResult() != null ? pItem.getPatrolResult() : "未知");
+            
+            //TODO 巡检状态异常更改图标
+            
             ll_tx_list.addView(view);
         }
         

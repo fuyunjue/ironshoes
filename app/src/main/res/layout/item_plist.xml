@@ -89,6 +89,7 @@
                     android:layout_height="@dimen/dimen16"/>
 
                 <TextView
+                    android:id="@+id/tv_patrol_esult"
                     style="@style/item_text_parent"
                     android:layout_marginLeft="@dimen/dimen3"
                     android:text="正常"/>

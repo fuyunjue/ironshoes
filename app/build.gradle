@@ -6,7 +6,7 @@ android {
             keyAlias 'ironshoes'
             keyPassword 'terence@139.gd'
             storeFile file('/Users/terence/Desktop/周壕/微标铁鞋/keystore')
-            storePassword 'terence@139.gd'
+//            storePapp:javaPreCompileDebugassword 'terence@139.gd'
         }
     }
     compileSdkVersion 27
