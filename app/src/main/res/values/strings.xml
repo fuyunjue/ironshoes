@@ -87,6 +87,8 @@
     <string name="tv_time_arrive">入库时间：%s</string>
     <string name="tv_tx_install">铁鞋设防：%s</string>
     <string name="tv_patrol_time">巡检时间：%s</string>
+    <string name="tv_work_state">作业状态：%s</string>
+    <string name="tv_patrol_result">巡检状态：%s</string>
     <string name="tv_rummager_info">铁鞋检查：%s</string>
     <string name="tv_region">配属局段：%s</string>
     <string name="tv_trainnumber">车号：%s</string>

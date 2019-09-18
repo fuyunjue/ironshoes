@@ -91,6 +91,11 @@ public class InfoPopwindow extends PopupWindow {
 		
 		ModelMotorWithTiexieInfo.TieXieDetail l =  info.getTxL();
 		if (l != null) {
+			String patrolResult = l.getPatrolResult();
+			String[] results = new String[2];
+			if (patrolResult.indexOf("|") > 0) {
+				results = patrolResult.split("|");
+			}
 			//左铁鞋
 			((TextView) mView.findViewById(R.id.tv_l_tiexiecode)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), l.getTieXieCode() == null ? "-" : l.getTieXieCode()));
 			((TextView) mView.findViewById(R.id.tv_l_installationtime)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), l.getInstallationTime() == null ? "-" : l.getInstallationTime()));
@@ -100,6 +105,7 @@ public class InfoPopwindow extends PopupWindow {
 			((TextView) mView.findViewById(R.id.tv_l_patrolresult)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), l.getPatrolResult() == null ? "-" : l.getPatrolResult()));
 			((TextView) mView.findViewById(R.id.tv_l_tiexiebattery)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), l.getTieXieBattery() == null ? "-" : l.getTieXieBattery()));
 			((TextView) mView.findViewById(R.id.tv_l_lorastate)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), l.getLoraState() == null ? "-" : l.getLoraState()));
+			((TextView) mView.findViewById(R.id.tv_l_workresult)).setText(results[0] == null ? tmp : results[0]);
 		} else {
 			((TextView) mView.findViewById(R.id.tv_l_tiexiecode)).setText(tmp);
 			((TextView) mView.findViewById(R.id.tv_l_installationtime)).setText(tmp);
@@ -109,11 +115,17 @@ public class InfoPopwindow extends PopupWindow {
 			((TextView) mView.findViewById(R.id.tv_l_patrolresult)).setText(tmp);
 			((TextView) mView.findViewById(R.id.tv_l_tiexiebattery)).setText(tmp);
 			((TextView) mView.findViewById(R.id.tv_l_lorastate)).setText(tmp);
-		}
+			((TextView) mView.findViewById(R.id.tv_l_workresult)).setText(tmp);
+	}
 		
 		//右铁鞋
 		ModelMotorWithTiexieInfo.TieXieDetail r =  info.getTxR();
 		if (null != r) {
+			String patrolResult = l.getPatrolResult();
+			String[] results = new String[2];
+			if (patrolResult.indexOf("|") > 0) {
+				results = patrolResult.split("|");
+			}
 			((TextView) mView.findViewById(R.id.tv_r_tiexiecode)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getTieXieCode() == null ? "-" : r.getTieXieCode()));
 			((TextView) mView.findViewById(R.id.tv_r_installationtime)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getInstallationTime() == null ? "-" : r.getInstallationTime()));
 			((TextView) mView.findViewById(R.id.tv_r_installationperson)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getInstallationPerson() == null ? "-" : r.getInstallationPerson()));
@@ -122,15 +134,17 @@ public class InfoPopwindow extends PopupWindow {
 			((TextView) mView.findViewById(R.id.tv_r_patrolresult)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getPatrolResult() == null ? "-" : r.getPatrolResult()));
 			((TextView) mView.findViewById(R.id.tv_r_tiexiebattery)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getTieXieBattery() == null ? "-" : r.getTieXieBattery()));
 			((TextView) mView.findViewById(R.id.tv_r_lorastate)).setText(String.format(mContext.getResources().getString(R.string.tv_xh), r.getLoraState() == null ? "-" : r.getLoraState()));
+			((TextView) mView.findViewById(R.id.tv_r_workresult)).setText(results[1] == null ? tmp : results[1]);
 		} else {
-				((TextView) mView.findViewById(R.id.tv_r_tiexiecode)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_installationtime)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_installationperson)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_patroltimequantum)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_patrolperson)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_patrolresult)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_tiexiebattery)).setText(tmp);
-				((TextView) mView.findViewById(R.id.tv_r_lorastate)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_tiexiecode)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_installationtime)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_installationperson)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_patroltimequantum)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_patrolperson)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_patrolresult)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_tiexiebattery)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_lorastate)).setText(tmp);
+			((TextView) mView.findViewById(R.id.tv_r_workresult)).setText(tmp);
 		}
 	}
 	

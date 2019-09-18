@@ -120,7 +120,7 @@ public class ModelMotorWithTiexieInfo extends ModelBase implements Serializable 
 		private String patrolPerson;    //巡检人员
 		private String tieXieBattery;    //电量
 		private String installationPerson;    //安装人员
-		private String patrolResult;    //配属局段
+		private String patrolResult;    //状态
 		
 		public String getInstallationTime () {
 			return installationTime;

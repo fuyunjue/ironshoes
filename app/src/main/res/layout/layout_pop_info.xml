@@ -71,6 +71,7 @@
                     android:background="@drawable/text_share_eee"
                     android:paddingTop="@dimen/dimen1"
                     android:paddingBottom="@dimen/dimen1"
+                    android:visibility="invisible"
                     android:paddingLeft="@dimen/dimen3"
                     android:paddingRight="@dimen/dimen3"
                     android:layout_width="wrap_content"
@@ -159,6 +160,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/dimen5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -239,7 +241,7 @@
                     <TextView
                         style="@style/main_pop_info_text_title"
                         android:id="@id/tv_tmp"
-                        android:text="安装时间"/>
+                        android:text="作业时间"/>
 
                     <TextView
                         android:id="@+id/tv_l_installationtime"
@@ -260,7 +262,7 @@
                     <TextView
                         style="@style/main_pop_info_text_title"
                         android:id="@id/tv_tmp"
-                        android:text="安装人员"/>
+                        android:text="作业人员"/>
 
                     <TextView
                         android:id="@+id/tv_l_installationperson"
@@ -271,6 +273,27 @@
                         android:id="@+id/tv_r_installationperson"
                         android:text="@string/tv_xh"
                         style="@style/main_pop_info_text_right" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/main_pop_info_text_title"
+                        android:id="@id/tv_tmp"
+                        android:text="作业状态"/>
+
+                    <TextView
+                        android:id="@+id/tv_l_workresult"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_left"/>
+
+                    <TextView
+                        android:id="@+id/tv_r_workresult"
+                        android:text="@string/tv_xh"
+                        style="@style/main_pop_info_text_right"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -323,7 +346,7 @@
                     <TextView
                         style="@style/main_pop_info_text_title"
                         android:id="@id/tv_tmp"
-                        android:text="检查状态"/>
+                        android:text="巡检状态"/>
 
                     <TextView
                         android:id="@+id/tv_l_patrolresult"
