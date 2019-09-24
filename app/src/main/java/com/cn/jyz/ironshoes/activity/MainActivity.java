@@ -975,7 +975,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	
 	/**
 	 * 执行作业
-	 * @param device
+	 * @param deviceName
 	 * @param title
 	 */
 	void doWork(String deviceName, final String title, int workId) {
@@ -996,19 +996,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	/**
 	 * 根据设备号查询该设备当前状态
 	 *
-	 * @param txno
+	 * @param mac
 	 * @param workId
 	 * @param title
 	 * @param bm
 	 */
-	void checkSN(final String txno, final int workId, final String title, final String bm) {
+	void checkSN(final String mac, final int workId, final String title, final String bm) {
 		if (progressDialog == null || !progressDialog.isShowing())
 			progressDialog = AppUtil.getProgressDialog(mContext, getResources().getString(R.string.loading), false, false);
 		
 		Map<String,Object> params = new HashMap<String,Object>();
 		params.put("levelmark", mLevelmark);
 		//params.put("txno", txno);   //铁鞋编号
-		params.put("mac", txno);   //铁鞋编号
+		params.put("mac", mac);   //铁鞋编号
 
 
 		AsyncHttpHelper.getInstance().get(mContext, Constant.TIEXIES, params, new AsyncHttpResponseHandler() {
@@ -1045,11 +1045,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 						runOnUiThread(new Runnable() {
 							@Override
 							public void run () {
-								ToastUtil.showShort(mContext, String.format("查询不到该铁鞋编码(%s)信息", txno));
+								ToastUtil.showShort(mContext, String.format("查询不到该铁鞋编码(%s)信息", mac));
 							}
 						});
 					} else {
-						showWorkPop(txno, bm, title, workId, tiexies);
+						showWorkPop(mac, bm, title, workId, tiexies);
 					}
 				} else if (tiexies.getCode() == EResponseCode.WRONG.getCode()) {
 					runOnUiThread(new Runnable() {
@@ -1069,13 +1069,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	
 	/**
 	 *
-	 * @param sn    铁鞋编码
+	 * @param mac    铁鞋mac
 	 * @param bm
 	 * @param title
 	 * @param workId
 	 * @param tiexie
 	 */
-	void showWorkPop(final String sn, String bm, final String title, int workId, ModelTiexies tiexie) {
+	void showWorkPop(final String mac, String bm, final String title, int workId, ModelTiexies tiexie) {
 		
 		if (null == doWorkPop) {
 			Integer viewId = null;
@@ -1113,7 +1113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 		
 		//TODO 填充内容
-		((TextView) doWorkView.findViewById(R.id.tv_work_sn)).setText(String.format(getResources().getString(R.string.tv_device_sn), sn));
+		((TextView) doWorkView.findViewById(R.id.tv_work_sn)).setText(String.format(getResources().getString(R.string.tv_device_sn), mac));
 		((TextView) doWorkView.findViewById(R.id.tv_current_user)).setText(AppApplication.getInstance().getUserInfo().getChinesename());
 		
 		if (workId == workIds[0]) {//撤防
@@ -1157,11 +1157,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				if (workId == workIds[0]) {
 					ModelTiexies.TiexieInfo tInfo = (ModelTiexies.TiexieInfo) view.getTag(R.string.tag_tv_track);
 					//撤防
-					uninstall(tInfo.getTxno(), AppApplication.getInstance().getUserInfo().getUserid());
+					uninstall(tInfo.getTxno(), mac, AppApplication.getInstance().getUserInfo().getUserid());
 				} else if (workId == workIds[1]) {
 					ModelTiexies.TiexieInfo tInfo = (ModelTiexies.TiexieInfo) view.getTag(R.string.tag_tv_track);
 					//巡检
-					checkModel(sn, tInfo.getTrackId(), AppApplication.getInstance().getUserInfo().getUserid());
+					checkModel(mac, tInfo.getTrackId(), AppApplication.getInstance().getUserInfo().getUserid());
 				} else if (workId == workIds[2]) {
 					//设防
 					//TODO 接口未要求机车车号参数
@@ -1172,7 +1172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //					}
 					Spinner spinner_gdh = (Spinner) doWorkView.findViewById(R.id.spinner_gdh);
 					//请求设防接口
-					install(sn, spinner_gdh.getSelectedItem().toString(), AppApplication.getInstance().getUserInfo().getUserid());
+					install(mac, spinner_gdh.getSelectedItem().toString(), AppApplication.getInstance().getUserInfo().getUserid());
 				}
 				
 				doWorkPop.dismiss();
@@ -1773,13 +1773,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	
 	/**
 	 * 作业 - 撤防（卸载）
-	 * @param txno
+     * @param txno
+	 * @param mac
 	 * @param userId
 	 */
-	void uninstall(String txno, String userId) {
+	void uninstall(String txno, String mac, String userId) {
 		Map<String,Object> params = new HashMap<String,Object>();
 		params.put("txno", txno);
-		params.put("mac", txno);
+		params.put("mac", mac);
 		params.put("userId", userId);
 		
 		runOnUiThread(new Runnable() {
