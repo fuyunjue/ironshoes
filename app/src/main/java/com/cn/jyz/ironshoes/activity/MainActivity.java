@@ -1,5 +1,5 @@
 package com.cn.jyz.ironshoes.activity;
-//git Test
+
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
