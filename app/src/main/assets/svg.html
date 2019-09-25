@@ -31,21 +31,44 @@
 
 <body style="background-color:#000;">
 
-    <div id="app">
-        <iframe id="svg"></iframe>
-        <canvas id="canvas"></canvas>
-    </div>
+<div id="app">
+    <iframe id="svg"></iframe>
+    <canvas id="canvas"></canvas>
+</div>
 </body>
 
 <script type="text/javascript">
     var spList = [];
     var imgMap = {};
     var urlMap = {
-        '1_1': './images/track1_1.png',
-        '1_2': './images/track1_2.png',
-        '1_3': './images/track1_3.png',
-        '2_200': './images/xie1_200.png',
-        '2_2': './images/xie1_2.png',
+        //机车5种颜色说明
+        //绿色：  接口输出(motorAndTx.list.state=100或者未知值)：state值甲方确认，我们配合修改。状态state不在100-500这5个里面，默认显示此颜色图标。
+        //橙色：  接口输出(motorAndTx.list.state=200)：state值甲方确认，我们配合修改。
+        //红色：  接口输出(motorAndTx.list.state=300)：state值甲方确认，我们配合修改。
+        //蓝色：  接口输出(motorAndTx.list.state=400)：state值甲方确认，我们配合修改。
+        //灰色：  接口输出(motorAndTx.list.state=500)：state值甲方确认，我们配合修改。
+        '1_100': './images/jiche_100.png',
+        '1_200': './images/jiche_200.png',
+        '1_300': './images/jiche_300.png',
+        '1_400': './images/jiche_400.png',
+        '1_500': './images/jiche_500.png',
+
+        //铁鞋5种颜色说明
+        //绿色：铁鞋设防  接口输出(motorAndTx.list.state=200)：state值甲方确认，我们配合修改。
+        //橙色：铁鞋预警  接口输出(motorAndTx.list.state=100)：state值甲方确认，我们配合修改。
+        //红色：铁鞋故障  接口输出(motorAndTx.list.state=300或者未知值)：state值甲方确认，我们配合修改。默认显示此颜色图标。
+        //蓝色：铁鞋越界  接口输出(motorAndTx.list.state=102)：
+        //灰色：信号丢失 接口输出(motorAndTx.list.state=400)：state值甲方确认，我们配合修改。
+        '2_100': './images/teixie_100_left.png',
+        '2_100right': './images/teixie_100_right.png',
+        '2_102': './images/teixie_102_left.png',
+        '2_102right': './images/teixie_102_right.png',
+        '2_200': './images/teixie_200_left.png',
+        '2_200right': './images/teixie_200_right.png',
+        '2_300': './images/teixie_300_left.png',
+        '2_300right': './images/teixie_300_right.png',
+        '2_400': './images/teixie_400_left.png',
+        '2_400right': './images/teixie_400_right.png'
     }
     var canvas = document.getElementById('canvas')
     var ctx = canvas.getContext("2d");
@@ -69,7 +92,7 @@
         canvas.height = svg.height = height;
 
         var app = document.getElementById('app')
-        app.style.width = width + 'px'
+      app.style.width = width + 'px'
         app.style.height = height + 'px'
     }
 
@@ -94,26 +117,26 @@
         }
     }
 
-    function drawSVGIcon(type, state, text, x, y, w, h) {
-        var img = imgMap[type+'_'+state]
+    function drawSVGIcon(type, state, text, x, y, w, h,lr) {
+        var img = imgMap[type+'_'+state+((lr==undefined || lr==null || lr==0)?"":"right")]
         if(img){
             if(1 == type){
                 //画小车
-                ctx.drawImage(img, 0, 0, 145, 82, x, y, w, h);
+                ctx.drawImage(img, 0, 0, 200, 82, x, y, w, h);
 
                 //画车号
                 ctx.font="14px Georgia";
                 ctx.fillStyle="#FFF";
-                ctx.fillText(text, x+(w/3), y+(h/5*2));
+                ctx.fillText(text, x+(w/3), y+(h/2));
             }else{
                 //画铁鞋
-                ctx.drawImage(img, 0, 0, 150, 150, x, y, w, h);
+                ctx.drawImage(img, 0, 0, 200, 100, x, y, w, h);
             }
         }
     }
 
-    function addSVGIcon(type, state, fid, text, marginTop, marginLeft, carWidth, carHeight, index, trackId) {
-        drawSVGIcon(type, state, text, marginLeft, marginTop, carWidth, carHeight)
+    function addSVGIcon(type, state, fid, text, marginTop, marginLeft, carWidth, carHeight, index, trackId,leftOrRight) {
+        drawSVGIcon(type, state, text, marginLeft, marginTop, carWidth, carHeight,leftOrRight)
 
         spList.push({
             type: type,

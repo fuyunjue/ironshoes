@@ -378,7 +378,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	
 	
 	HashMap<Integer, List<ViewSvgIcon>> txViewsHash = new HashMap<>();  //铁鞋
-	
+
 	/**
 	 * 画电子地图-机车、铁鞋
 	 *
@@ -386,23 +386,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * @param tracks
 	 */
 	void addTracks(ModelMotorsAndTx motorsAndTx, ModelTrack tracks) {
-		
+
 		//封装为Hash集合 Hash<String, List<MotorInfo>>  Hash<股道号, 机车(铁鞋)列表>
 		HashMap<Integer, ModelTrack.TrackInfo> hash = new HashMap<>();
 		ArrayList<ModelTrack.TrackInfo> tList = tracks.getTracks();
 		for (ModelTrack.TrackInfo tItem : tList) {
 			hash.put(Integer.parseInt(tItem.getTrackno()), tItem);
 		}
-		
+
 		HashMap<Integer, List<ViewSvgIcon>> trackViewsHash = new HashMap<>();   //机车
-		
+
 		ArrayList<ModelMotorsAndTx.MotorAndTxInfo> mList = motorsAndTx.getList();
 		for (ModelMotorsAndTx.MotorAndTxInfo item : mList) {
 			ModelTrack.TrackInfo trackInfo = hash.get(Integer.parseInt(item.getTrackId()));
-			int height = 40;    //图标显示高度
+			int height = 35;    //图标显示高度
 			int width = 0;
 			int txWidth = 30;   //铁鞋显示宽度需重新计算，宽度固定显示30
-			
+
 			//判断是机车还是铁鞋 1-机车，2-铁鞋
 			int type = item.getfType();
 			//TODO 两个铁鞋占一个机车位置，计算width时注意
@@ -412,25 +412,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				//铁鞋
 				width = width / 2;
 			}
-			
-			
+
+
 			int marginTop = 0;
-			
+
 			int marginLeft = 0;
 			//左边距   铁鞋左边距需加上一个铁鞋位置
 			if (type == 1) {
 				marginLeft = (int) (Float.parseFloat(trackInfo.getStartX()) + width * (item.getTrainIndex() - 1)) + width / 2;
 				//marginTop减去5个像素，适配机车
-				marginTop = (int) (Float.parseFloat(trackInfo.getStartY()) - height + 10);
+				marginTop = (int) (Float.parseFloat(trackInfo.getStartY()) - height);
 			} else if (type == 2) {
-				int topMargin = height / 5 * 2;
-				height = height / 4 * 3;
+				int topMargin = height / 2;
+				height = height/2;
 				//marginTop减去10个像素，适配铁鞋
 				marginTop = (int) (Float.parseFloat(trackInfo.getStartY()) - topMargin);
 				//设置铁鞋显示宽度
-				width = txWidth / 3 * 2;
+				width = txWidth;
 			}
-			
+
 			ViewSvgIcon view = new ViewSvgIcon();
 			view.setIconHeight(height);
 			view.setIconWidth(width);
@@ -439,7 +439,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			view.setInfo(item);
 			view.setTrainIndex(item.getTrainIndex());
 			int trackId = Integer.parseInt(item.getTrackId());
-			
+
 			//缓存view
 			if (type == 1) {
 				if (trackViewsHash.get(trackId) == null) {
@@ -449,11 +449,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				} else {
 					trackViewsHash.get(trackId).add(view);
 				}
+
+				String state = item.getState();
+				//设置铁鞋默认值
+				if ("|100|200|300|400|500|".indexOf("|"+state+"|")<0) {
+					state = "100";
+				}
+
 				//画机车
-				Log.e("aaaa", "javascript:addSVGIcon(" + item.getfType() + ",1," + item.getfId() + "," + item.getfId() + "," + view.getMarginTop() + "," + view.getMarginLeft() + "," + view.getIconWidth() + "," + view.getIconHeight() + ");");
-//
-				webView.loadUrl("javascript:addSVGIcon(" + item.getfType() + ",1," + item.getfId() + ",'" + item.getTrainNumber() + "'," + view.getMarginTop() + "," + view.getMarginLeft() + "," + view.getIconWidth() + "," + view.getIconHeight() + "," + view.getTrainIndex() + "," + trackId + ");");
-				
+				String jsStr = "addSVGIcon(" + item.getfType() + ",'"+state+"'," + item.getfId() + ",'" + item.getTrainNumber() + "'," + view.getMarginTop() + "," + view.getMarginLeft() + "," + view.getIconWidth() + "," + view.getIconHeight() + "," + view.getTrainIndex() + "," + trackId + ","+view.getLeftOrRight()+");";
+				Log.e("MainActivity",jsStr);
+				webView.loadUrl("javascript:"+jsStr);
+
 			} else if (type == 2) {
 				//铁鞋
 				if (txViewsHash.get(trackId) == null) {
@@ -465,7 +472,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				}
 			}
 		}
-		
+
 		/**
 		 * 循环描view
 		 */
@@ -473,51 +480,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		Iterator iter = txViewsHash.entrySet().iterator();
 		while (iter.hasNext()) {
 			Map.Entry entry = (Map.Entry) iter.next();
-			
+
 			int trackId = Integer.parseInt(entry.getKey().toString());
 			List<ViewSvgIcon> txViews = txViewsHash.get(trackId);
 			//画铁鞋
 			if (txViews != null && txViews.size() > 0) {
 				for (ViewSvgIcon icon : txViews) {
 					List<ViewSvgIcon> tViewList = trackViewsHash.get(trackId);
-					
+
 					//是左是右
 					if ("-1".equals(icon.getInfo().getfName())) {
+						icon.setLeftOrRight(0);
 						//左
 						if (null != tViewList && tViewList.size() > 0) {
 							//有机车,取第一个机车marginLeft
 							ViewSvgIcon first = tViewList.get(0);
-							icon.setMarginLeft(first.getMarginLeft() - first.getIconWidth() / 4 - icon.getIconWidth() / 2);
+							icon.setMarginLeft(first.getMarginLeft() - icon.getIconWidth() / 5 * 4);
 						} else {
 							//无机车
-							icon.setMarginLeft((int) Float.parseFloat(hash.get(trackId).getStartX()) + 10);
+							icon.setMarginLeft((int) Float.parseFloat(hash.get(trackId).getStartX()));
 						}
 					} else if ("-2".equals(icon.getInfo().getfName())) {
+						icon.setLeftOrRight(1);
 						//左
 						if (null != tViewList && tViewList.size() > 0) {
 							//有机车,取最后一个机车marginLeft
 							ViewSvgIcon last = tViewList.get(tViewList.size() - 1);
-							icon.setMarginLeft(last.getMarginLeft() + last.getIconWidth() + icon.getIconWidth() / 2);
+							icon.setMarginLeft(last.getMarginLeft() + last.getIconWidth() - icon.getIconWidth() / 5 * 1);
 						} else {
 							//无机车
-							icon.setMarginLeft((int) Float.parseFloat(hash.get(trackId).getEndX()) - 10);
+							icon.setMarginLeft((int) Float.parseFloat(hash.get(trackId).getEndX()));
 						}
 					} else {
 						continue;
 					}
-					
+
 					try {
 						ModelMotorsAndTx.MotorAndTxInfo mInfo = icon.getInfo();
-						
 						if (mInfo.getState() != null) {
-							int state = Integer.parseInt(mInfo.getState());
-							
-							if (state != 200) {
-								state = 2;
+
+							String state = mInfo.getState();
+							//设置铁鞋默认值
+							if ("|100|102|200|300|400|".indexOf("|"+state+"|")<0) {
+								state = "300";
 							}
-							
-							Log.e("aaaa", "javascript:addSVGIcon(" + mInfo.getfType() + "," + state + "," + mInfo.getfId() + "," + mInfo.getfId() + "," + icon.getMarginTop() + "," + icon.getMarginLeft() + "," + icon.getIconWidth() + "," + icon.getIconHeight() / 2 + ");");
-							webView.loadUrl("javascript:addSVGIcon(" + mInfo.getfType() + "," + state + "," + mInfo.getfId() + "," + mInfo.getfId() + "," + icon.getMarginTop() + "," + icon.getMarginLeft() + "," + icon.getIconWidth() + "," + icon.getIconHeight() / 2 + "," + icon.getTrainIndex() + "," + trackId + ");");
+
+							String jsStr = "addSVGIcon(" + mInfo.getfType() + "," + state + "," + mInfo.getfId() + "," + mInfo.getfId() + "," + icon.getMarginTop() + "," + icon.getMarginLeft() + "," + icon.getIconWidth() + "," + icon.getIconHeight() + "," + icon.getTrainIndex() + "," + trackId + ","+icon.getLeftOrRight()+");";
+							Log.e("MainActivity",jsStr);
+							webView.loadUrl("javascript:"+jsStr);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
