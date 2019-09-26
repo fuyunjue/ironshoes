@@ -78,6 +78,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
 import com.github.jdsjlzx.util.WeakHandler;
+import com.ibm.mqtt.Mqtt;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.skybeacon.sdk.ConnectionStateCallback;
 import com.skybeacon.sdk.RangingBeaconsListener;
@@ -128,6 +129,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private LinearLayout urm_top_ll;
 	private TextView tv_station;
 	private ImageView iv_check_stations;
+
+	private TextView tv_mqttStateStr=null;
+	private TextView tv_lyStateStr=null;
+	private LinearLayout ll_lyState=null;
+	private LinearLayout ll_mqttState=null;
 	
 	public static int screenW, screenH;
 	
@@ -858,13 +864,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		
 		((TextView) findViewById(R.id.tv_user_chinesename)).setText(String.format(getResources().getString(R.string.tv_user_chinesename), userInfo == null ? "" : userInfo.getChinesename()));
 		((TextView) findViewById(R.id.tv_user_mobile)).setText(String.format(getResources().getString(R.string.tv_user_mobile), userInfo == null ? "" : userInfo.getMobile()));
+
+		tv_mqttStateStr = ((TextView) findViewById(R.id.tv_mqttStateStr));
+		tv_lyStateStr = ((TextView) findViewById(R.id.tv_lyStateStr));
+		ll_mqttState = ((LinearLayout) findViewById(R.id.ll_mqttState));
+		ll_lyState = ((LinearLayout) findViewById(R.id.ll_lyState));
 	}
-	
+	public void setStateText(TextView tv,int color,String stateStr,String typeStr){
+		tv.setText(stateStr);
+		LinearLayout ll = tv.getId()==R.id.tv_mqttStateStr?ll_mqttState:ll_lyState;
+		ll.setBackgroundResource(color==1?R.drawable.button_share_green:R.drawable.button_share_huang);
+	}
+	void checkLyAndMqtt() {
+		setStateText(tv_mqttStateStr,MqttService.mqttState, MqttService.mqttStateStr,"消息");
+		//查询Mqtt服务是否存在
+		if(!AppUtil.isServiceExisted(mContext,"com.cn.jyz.ironshoes.push.MqttService")){
+			setStateText(tv_mqttStateStr,3,"服务关闭","消息");
+		}
+
+		//检查应用权限
+		if (!checkBluetoothPermission()) {
+			setStateText(tv_lyStateStr,0, "没有权限","蓝牙");
+		} else {
+			//检查蓝牙是否已打开
+			if (checkBluetoothEnabled() || turnOnBluetooth()) {
+				setStateText(tv_lyStateStr, 1, "蓝牙打开", "蓝牙");
+			}
+			else{
+				setStateText(tv_lyStateStr, 2, "蓝牙关闭", "蓝牙");
+			}
+		}
+	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		checkLyAndMqtt();
+	}
+
 	@Override
 	public void onClick (View view) {
 		switch (view.getId()) {
 			case R.id.iv_drawer_menu:
 				toggle();
+				checkLyAndMqtt();
 				break;
 			case R.id.iv_record:
 				Intent recordIntent = new Intent(mContext, ActivityRecord.class);
@@ -903,12 +945,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	void clickDoWork(final View view) {
 		//检查应用权限
 		if (!checkBluetoothPermission()) {
+			setStateText(tv_lyStateStr,0, "没有权限","蓝牙");
 			ActivityCompat.requestPermissions(MainActivity.this,
 					new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_ENABLE_BT );
 		} else {
 			//检查蓝牙是否已打开
 			if (checkBluetoothEnabled()) {
-				
+				setStateText(tv_lyStateStr,0, "蓝牙打开","蓝牙");
 				startScan(view);
 			} else {
 				new AlertDialog.Builder(MainActivity.this)
@@ -919,9 +962,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 							public void onClick(DialogInterface dialog, int which) {
 								dialog.dismiss();
 								if (turnOnBluetooth()) {
+									setStateText(tv_lyStateStr,0, "蓝牙打开","蓝牙");
 									Toast tst = Toast.makeText(MainActivity.this, "打开蓝牙成功！", Toast.LENGTH_SHORT);
 									tst.show();
 								} else {
+									setStateText(tv_lyStateStr,0, "蓝牙关闭","蓝牙");
 									Toast tst = Toast.makeText(MainActivity.this, "打开蓝牙失败！", Toast.LENGTH_SHORT);
 									tst.show();
 								}
@@ -1290,7 +1335,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * 执行扫描
 	 */
 	void startScan(View view) {
-		
+
 		workPop = new WorkPopwindow(MainActivity.this, itemsOnClick);
 		workPop.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 		workPop.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -1329,6 +1374,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * 开始扫描蓝牙
 	 */
 	private void startRanging() {
+		setStateText(tv_lyStateStr, 1, "正在扫描", "蓝牙");
+
 		SKYBeaconManager.getInstance().startScanService(new ScanServiceStateCallback() {
 			
 			@Override
@@ -1445,6 +1492,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * 停止扫描
 	 */
 	private void stopRanging() {
+		setStateText(tv_lyStateStr, 1, "蓝牙打开", "蓝牙");
+
 		SKYBeaconManager.getInstance().stopScanService();
 		SKYBeaconManager.getInstance().stopRangingBeasons(null);
 	}
@@ -1525,7 +1574,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private class MqqtBroadReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			
+			if (intent.getIntExtra("mqttState",-1) != -1) {
+				final int mqttState = intent.getIntExtra("mqttState",0);
+				final String mqttStateStr = intent.getStringExtra("mqttStateStr");
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run () {
+					ToastUtil.showShort(mContext, "mqtt连接状态：" + mqttStateStr);
+					setStateText(tv_mqttStateStr,mqttState, mqttStateStr,"消息");
+					}
+				});
+				return;
+			}
 			if (intent.getStringExtra("msg") != null) {
 				final String str = intent.getStringExtra("msg");
 				//16进制转成字符串

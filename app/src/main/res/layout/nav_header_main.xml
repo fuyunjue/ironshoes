@@ -13,11 +13,77 @@
     android:paddingBottom="@dimen/dimen12"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <com.cn.jyz.ironshoes.view.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"
-        app:is_circle="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <com.cn.jyz.ironshoes.view.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round"
+            app:is_circle="true" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal|bottom"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:id="@+id/ll_mqttState"
+                android:layout_gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:background="@drawable/button_share_green"
+                android:padding="@dimen/dimen1"
+                android:layout_marginRight="@dimen/dimen3"
+                android:layout_marginBottom="@dimen/dimen5"
+                >
+                <ImageView
+                    android:background="@mipmap/img_mqtt"
+                    android:layout_width="@dimen/dimen20"
+                    android:layout_height="@dimen/dimen20"/>
+                <TextView
+                    android:id="@+id/tv_mqttStateStr"
+                    android:textSize="@dimen/dimen14"
+                    android:textColor="@color/text_color_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dimen8"
+                    android:layout_marginLeft="@dimen/dimen3"
+                    android:text="初始连接"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_lyState"
+                android:layout_gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:background="@drawable/button_share_green"
+                android:padding="@dimen/dimen1"
+                android:layout_marginRight="@dimen/dimen3"
+                >
+                <ImageView
+                    android:background="@mipmap/img_ly"
+                    android:layout_width="@dimen/dimen20"
+                    android:layout_height="@dimen/dimen20"/>
+                <TextView
+                    android:id="@+id/tv_lyStateStr"
+                    android:textSize="@dimen/dimen14"
+                    android:textColor="@color/text_color_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dimen8"
+                    android:layout_marginLeft="@dimen/dimen3"
+                    android:text="正在读取"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"

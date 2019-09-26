@@ -102,7 +102,11 @@ public class MqttService extends Service implements MqttCallback {
 
     private static int 				notificationId = 0;
     private NotificationManager mNotifMan;
-    
+
+
+    public static int mqttState = 0;
+    public static String mqttStateStr = "初始化";
+
     /**
      * Start MQTT Client
      * @param ctx context to start the service with
@@ -229,8 +233,12 @@ public class MqttService extends Service implements MqttCallback {
             }
 
             connect();
+            try {
+                registerReceiver(mConnectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+            }
+            catch (Exception ex){
 
-            registerReceiver(mConnectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+            }
     }
     /**
      * Attempts to stop the Mqtt client
@@ -249,6 +257,8 @@ public class MqttService extends Service implements MqttCallback {
                 public void run() {
                     try {
                         mClient.disconnect();
+
+                        sendMqqtStateMessage(2,"断开连接");
                     } catch (MqttException ex) {
                         ex.printStackTrace();
                     }
@@ -268,6 +278,8 @@ public class MqttService extends Service implements MqttCallback {
      * Connects to the broker with the appropriate datastore
      */
     private synchronized void connect() {
+        sendMqqtStateMessage(0,"正在连接");
+
         try {
             //TODO mqtt监听服务ip、端口号
             String url = String.format(Locale.US, MQTT_URL_FORMAT, AppApplication.getInstance().getMqttServerIp(), AppApplication.getInstance().getMqttServerPort());
@@ -300,8 +312,11 @@ public class MqttService extends Service implements MqttCallback {
 
                     Log.i(DEBUG_TAG,"Successfully connected and subscribed starting keep alives");
 
+                    sendMqqtStateMessage(1,"保持连接");
+
                     startKeepAlives();
                 } catch(MqttException e) {
+                    sendMqqtStateMessage(2,"连接失败");
                     e.printStackTrace();
                 }
             }
@@ -339,6 +354,8 @@ public class MqttService extends Service implements MqttCallback {
             if(isConnected()) {
                     try {
                             sendKeepAlive();
+                            sendMqqtStateMessage(1,"保持连接");
+
                             return;
                     } catch(MqttConnectivityException ex) {
                             ex.printStackTrace();
@@ -484,6 +501,19 @@ public class MqttService extends Service implements MqttCallback {
         intent.putExtra("msg", text);
         this.sendOrderedBroadcast(intent, null); //有序广播发送
     }
+    //发送mqtt状态信息
+    public void sendMqqtStateMessage(int state,String stateStr){
+        mqttState = state;
+        mqttStateStr = stateStr;
+
+        Intent intent = new Intent();
+        intent.setAction(NOTIFICATION_BROADCAST);
+        intent.putExtra("mqttState", mqttState);
+        intent.putExtra("mqttStateStr", mqttStateStr);
+        Log.e("MqttService","mqttState:"+mqttState+" mqttStateStr:"+mqttStateStr);
+        this.sendOrderedBroadcast(intent, null); //有序广播发送
+    }
+
     private void showNotification(String text) {
         Notification n = new Notification();
 
