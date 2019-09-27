@@ -121,7 +121,7 @@ public class InfoPopwindow extends PopupWindow {
 		//右铁鞋
 		ModelMotorWithTiexieInfo.TieXieDetail r =  info.getTxR();
 		if (null != r) {
-			String patrolResult = l.getPatrolResult();
+			String patrolResult = r.getPatrolResult();
 			String[] results = new String[2];
 			if (patrolResult.indexOf("|") > 0) {
 				results = patrolResult.split("|");

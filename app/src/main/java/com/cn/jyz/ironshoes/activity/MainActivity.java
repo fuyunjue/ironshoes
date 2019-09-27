@@ -1374,8 +1374,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * 开始扫描蓝牙
 	 */
 	private void startRanging() {
-		setStateText(tv_lyStateStr, 1, "正在扫描", "蓝牙");
-
 		SKYBeaconManager.getInstance().startScanService(new ScanServiceStateCallback() {
 			
 			@Override
@@ -1396,13 +1394,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			@Override
 			public void onRangedNearbyBeacons(SKYRegion beaconRegion, List beaconList) {
 				// TODO Auto-generated method stub
-				
+				Log.e("onRangedNearbyBeacons","onRangedNearbyBeacons");
 			}
 			
 			@Override
 			public void onRangedBeaconsMultiIDs(SKYRegion beaconRegion, List beaconMultiIDsList) {
 				// TODO Auto-generated method stub
-				
+				Log.e("onRangedBeaconsMultiIDs","onRangedBeaconsMultiIDs");
 			}
 			
 			@Override
@@ -1414,8 +1412,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 					//过滤major范围为1000到2000的蓝牙设备
 					for (int i = 0; i < beaconList.size(); i++) {
 						iBeaconView beacon = new iBeaconView();
-						
 						final SKYBeacon skyBeacon = (SKYBeacon) beaconList.get(i);
+						Log.e("MainActivity","扫描到" + skyBeacon.getDeviceAddress());
 
 						if (fmac.replace(" ", "").indexOf(skyBeacon.getDeviceAddress().replace(" ", "")) < 0) {
 							Log.e("MainActivity","扫描到" + skyBeacon.getDeviceAddress()+" 名称："+ skyBeacon.getDeviceName() + ", 不匹配");
@@ -1492,8 +1490,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	 * 停止扫描
 	 */
 	private void stopRanging() {
-		setStateText(tv_lyStateStr, 1, "蓝牙打开", "蓝牙");
-
 		SKYBeaconManager.getInstance().stopScanService();
 		SKYBeaconManager.getInstance().stopRangingBeasons(null);
 	}
@@ -1580,7 +1576,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run () {
-					ToastUtil.showShort(mContext, "mqtt连接状态：" + mqttStateStr);
+					//ToastUtil.showShort(mContext, "mqtt连接状态：" + mqttStateStr);
 					setStateText(tv_mqttStateStr,mqttState, mqttStateStr,"消息");
 					}
 				});
